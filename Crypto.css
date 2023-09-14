@@ -1,0 +1,208 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;    
+}
+
+h3 {
+    margin: 0;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    margin-top: 10vh;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.heading {
+    color:aliceblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.upperBlock {
+    top: 0;
+    position: fixed;
+    z-index: -1;
+    height: 50vh;
+    width: 100%;
+    background-color: rgb(10,20,110);
+}
+
+.answerStatement {
+    /* margin-top: 5%; */
+    padding: 1rem;
+    font-size: xxx-large;
+
+}
+
+.convertorName {
+    font-size:x-large;
+
+}
+
+.convertorContainer {
+    padding: 2rem;
+    width: 70rem;
+    border-radius: 8px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(35, 55, 80, 0.3) 0px 6px 12px;
+    margin-top: 2rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    text-align: center;
+    font-size: xx-large;
+    font-weight: bold;
+    color:rgb(10,20,110);
+}
+
+.inputs {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    padding: 1rem;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.text {
+    padding: 4px;
+    font-size: large;
+    font-weight: 500;
+}
+.reverse {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #c3c3c3;
+    border-radius: 50%;
+    padding: 1rem;
+}
+
+.result {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 1rem;
+}
+
+.result > p {
+    padding: 4px;
+}
+
+
+.inputHeading {
+    width: 28%;
+}
+
+
+.inputContainer {
+    width: 100%;
+    padding: 0.5rem;
+    cursor: pointer;
+    font-size: larger;
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+    border: 1px solid #c3c3c3;
+
+}
+
+.currencySelector {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.currencyData {
+    display: flex;
+    align-items: center;
+}
+
+.flag-image {
+    width: 28px;
+    height: 28px;
+}
+
+.options {
+    display: none;
+    background-color: white;
+    overflow-y: scroll;
+    z-index: 1;
+    height: 30vh;
+    width: 100%;
+    cursor: pointer;
+    padding: 0.5rem;
+    font-size: larger;
+    position: absolute;
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+    border: 1px solid #c3c3c3;
+    margin-top: 0.25rem;
+}
+
+.options::-webkit-scrollbar {
+    display: none;
+}
+
+.options > .currencyData {
+    padding: 0.5rem;
+}
+
+.currencyName {
+    font-size: medium;
+    margin-left: 10px;
+
+}
+/* 
+.inputContainer {
+    font-size: larger;
+    width: 100%;
+    height: 52px;
+    outline: none;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+    border: 1px solid #c3c3c3;
+} */
+
+.inputContainer:focus {
+    border: 1px solid rgb(16, 76, 228);
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.convertButton {
+    padding: 10px 20px;
+    font-size: medium;
+    color: #20006e;
+    background-color: transparent;
+    border-radius: 0.5rem;
+    font-weight: bolder;
+    cursor: pointer;
+    border: 1px solid #20006e;
+    transition: all 0.3s ease-out;
+}
+
+.convertButton:hover {
+    color: white;
+    background-color: #20006e;
+    border: 1px solid #20006e;
+    transform: scale(1.2);
+}

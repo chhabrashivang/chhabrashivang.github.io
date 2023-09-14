@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <link rel="stylesheet" href="./Crypto.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" type="image/x-icon" href="/images/favicon/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"  />
+    <script src="./Currency_Convertor.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body onload ="getData();"  >
+    <div class="container">
+        <div class="heading">
+            <p class="answerStatement">Currency Converter</p>
+            <p class="convertorName">C2 Currency Convertor</p>
+        </div>
+        <div class="convertorContainer">
+            <p class="title"> <i style="margin-right: 0.5rem;" class="fa-solid fa-comments-dollar"></i>Convert</p>
+            <div class="inputs">
+                <div class="inputHeading">
+                    <p class="text">Amount</p>
+                    <input class="inputContainer" id="inputAmount" style="font-size: x-large;" type="number" value="100">
+                    <!-- <p class="inputContainer" style="font-size: large;">1000</p> -->
+                </div>
+                <div class="inputHeading" style="position: relative;">
+                    <p class="text">From</p>
+                    <div id="fromCurrencies" class="inputContainer" onclick="toggleSelectFromMenu()">
+                        <div class = "currencySelector" id="AED"> 
+                            <div class="currencyData">
+                                <img id="fromCurrencyImg" class="flag-image" src='data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAG5SURBVHja7JdLihRBEEBfVqUU6rQNggiCFxA8gswFRNy49gAeQdx4G8HbuHDvRkRUnKxPZ2dGhous6Y9TtavPZmITtYggXsWPSKOqrCkFK8stgAFKoOr1kiKAt8CD76/f/KYYj//u7bPpU28Mn199eGiBLabg7uWLUePLp08mB/j66xvA1gKVSkK9J/29guuxNCZrVX60905qZlD0xvd5XbPvmN22uo+XCFDZXI2Idjt0txuk9TFM+ve7Yk9MAkAPIKSuI3XdoEMX/aQAd4qSfYpHAI0RbVt0FGA/KYAtyvMMaBTUObRpBh2a0E3cgspewkkJQkDqGm3bQfNPL9/PtIQ+cmjC5OqbTaj9qppRcglCAFej3h9H8P9xnBUgCtRNBllYDj0QmxbWAkgxggiktFjg60PosAeMJnQtAIkRq7poBlIfK5cgRBQdzYC1dtLgVVVRluUJgEQo7XH0RminlBDCKUDK99AIwByXs4gcb0JJafaFc7aCjTlktQBIqpiVAPIYas5AcXEx6LCRzaxjKAn4465GjZ1zs13GBngMPAceLbyFfwJfTP8m2PR6SfGAM7eP07UB/g0Aw73uXdMbeJMAAAAASUVORK5CYII=' />
+                                <p id="fromCurrencyPara" class="currencyName"><span style="display: block; font-weight: bold;">AED</span> - UAE Dirham</p>
+                            </div>
+                             <i class="fa-solid fa-angle-down" style="font-size: small"></i>
+                            </div>
+                    </div>
+                    <div class="options" id="fromList">
+                    </div>
+                </div>
+                <div class="reverse" onclick="reverseButton()">
+                    <i class="fa-solid fa-arrow-right-arrow-left"></i>
+                </div>
+                <div class="inputHeading" style="position: relative;">
+                    <p class="text">To</p>
+                    <div id="toCurrencies" class="inputContainer" onclick="toggleSelectToMenu()">
+                        <div class = 'currencySelector' id='AED'> 
+                            <div class="currencyData">
+                                <img id="toCurrencyImg" src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAG5SURBVHja7JdLihRBEEBfVqUU6rQNggiCFxA8gswFRNy49gAeQdx4G8HbuHDvRkRUnKxPZ2dGhous6Y9TtavPZmITtYggXsWPSKOqrCkFK8stgAFKoOr1kiKAt8CD76/f/KYYj//u7bPpU28Mn199eGiBLabg7uWLUePLp08mB/j66xvA1gKVSkK9J/29guuxNCZrVX60905qZlD0xvd5XbPvmN22uo+XCFDZXI2Idjt0txuk9TFM+ve7Yk9MAkAPIKSuI3XdoEMX/aQAd4qSfYpHAI0RbVt0FGA/KYAtyvMMaBTUObRpBh2a0E3cgspewkkJQkDqGm3bQfNPL9/PtIQ+cmjC5OqbTaj9qppRcglCAFej3h9H8P9xnBUgCtRNBllYDj0QmxbWAkgxggiktFjg60PosAeMJnQtAIkRq7poBlIfK5cgRBQdzYC1dtLgVVVRluUJgEQo7XH0RminlBDCKUDK99AIwByXs4gcb0JJafaFc7aCjTlktQBIqpiVAPIYas5AcXEx6LCRzaxjKAn4465GjZ1zs13GBngMPAceLbyFfwJfTP8m2PR6SfGAM7eP07UB/g0Aw73uXdMbeJMAAAAASUVORK5CYII=' style="height: 28px;" />
+                                <p id="toCurrencyPara" class="currencyName"><span style="font-weight: bold;">AED</span> - UAE Dirham</p>
+                            </div>
+                            <i class="fa-solid fa-angle-down" style="font-size: small"></i>
+                        </div>
+                    </div>
+                    <div class="options" id="toList">
+                    </div>
+                </div>
+            </div>
+            <div class="result">
+                <p id="inputAmountParagraph" style="font-size: x-large;"></p>
+                <p id="answer" style="font-size: xx-large;"></p>
+                <p id="fromConversionRate" style="font-size: large;"></p>
+                <p id="toConversionRate" style="font-size: large;"></p>
+            </div>
+            <button class="convertButton" onclick="convertButton()">Convert</button>
+        </div>
+    </div>
+    <div class="upperBlock">
+    </div>
+    <div id="spinner-container" style="background-color: #00000055; position: fixed; top: 0; width: 100%; height: 100vh; display: none; align-items: center; justify-content: center;"><img style="width: 6rem; height: 6rem;" src="images/spin.svg" /></div>
+    
+</body>
+</html>
+
+<!-- https://www.xe.com/currencyconverter/convert/?Amount=2345&From=USD&To=EUR -->
+<!-- https://api.coingecko.com/api/v3/coins/markets?vs_currency=INR&order=market_cap_desc&per_page=100&page=1&sparkline=false -->

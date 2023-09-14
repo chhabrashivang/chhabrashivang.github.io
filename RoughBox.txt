@@ -1,0 +1,43 @@
+("https://v6.exchangerate-api.com/v6/623b8c9d822b33aecd87a9f2/pair/"+`${fromCode}`+"/"+`${toCode}`+"/"+`${amount}`)
+
+
+
+
+
+    // (`"https://v6.exchangerate-api.com/v6/623b8c9d822b33aecd87a9f2/pair/${fromCode}/${toCode}/${amount}"`)
+
+    
+
+// }
+
+// <div class="currencyData">
+//                                 <img src='data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAG5SURBVHja7JdLihRBEEBfVqUU6rQNggiCFxA8gswFRNy49gAeQdx4G8HbuHDvRkRUnKxPZ2dGhous6Y9TtavPZmITtYggXsWPSKOqrCkFK8stgAFKoOr1kiKAt8CD76/f/KYYj//u7bPpU28Mn199eGiBLabg7uWLUePLp08mB/j66xvA1gKVSkK9J/29guuxNCZrVX60905qZlD0xvd5XbPvmN22uo+XCFDZXI2Idjt0txuk9TFM+ve7Yk9MAkAPIKSuI3XdoEMX/aQAd4qSfYpHAI0RbVt0FGA/KYAtyvMMaBTUObRpBh2a0E3cgspewkkJQkDqGm3bQfNPL9/PtIQ+cmjC5OqbTaj9qppRcglCAFej3h9H8P9xnBUgCtRNBllYDj0QmxbWAkgxggiktFjg60PosAeMJnQtAIkRq7poBlIfK5cgRBQdzYC1dtLgVVVRluUJgEQo7XH0RminlBDCKUDK99AIwByXs4gcb0JJafaFc7aCjTlktQBIqpiVAPIYas5AcXEx6LCRzaxjKAn4465GjZ1zs13GBngMPAceLbyFfwJfTP8m2PR6SfGAM7eP07UB/g0Aw73uXdMbeJMAAAAASUVORK5CYII=' style="height: 28px; margin-right: 1rem;" />
+//                                 <p class="currencyName"><span style="font-weight: bold;">AED</span> - UAE Dirham</p>
+//                             </div>
+
+
+
+
+
+// const getData = () => {
+//     // console.log(currencies)
+
+//     currencies.forEach((country) => {
+//         const { code , name , flag } = country;
+        
+//         const countryList = document.createElement("div");
+//         countryList.classList.add("currency");
+//         // countryList.id.add(code);
+
+//         countryList.innerHTML = `
+//             <img
+//                 src="${flag}" 
+//             />
+//             <div class="currencyData">
+//                     <h3>${code}</h3>
+//                     <span>${name}</span>
+//             </div>
+//             <div/>
+//         `;
+//     })
+// 

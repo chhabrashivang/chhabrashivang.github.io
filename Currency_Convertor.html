@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Convertor</title>
+    <link rel="stylesheet" href="/home/shivang/Desktop/Currency_Convertor/Currency_Convertor.css">
+    <script src="./Currency_Convertor.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body onload="getCurrencies();getData()">
+
+    <div class="Container">
+        <div class="Heading" id="title" onclick="content('title')"><p>The Convertor</p></div>
+        <div class="Currencies">
+            
+            <div class="fromCurrency">
+                <p>From :</p>
+                <select  class="list" id="Currencies">
+                    <option value="">--Please choose an option--</option>
+                    <option value="dog">Dog</option>
+                    <option value="cat">Cat</option>
+                    <option value="hamster">Hamster</option>
+                    <option value="parrot">Parrot</option>
+                    <option value="spider">Spider</option>
+                    <option value="goldfish">Goldfish</option>
+                  </select>
+            </div>
+            <div class="toCurrency">
+                <p>To :</p>
+            </div>
+        </div>
+        <div class="Values" >
+            <div class="Input">
+                <p>From :</p>
+            </div>
+            <div class="Output">
+                <p>From :</p>
+            </div>
+        </div>
+        <div class="convertButton">
+            <p>Convert</p>
+        </div>
+    </div>
+</body>
+</html>
+
+<!-- https://app.exchangerate-api.com/dashboard -->
+<!-- https://v6.exchangerate-api.com/v6/623b8c9d822b33aecd87a9f2/latest/USD -->
