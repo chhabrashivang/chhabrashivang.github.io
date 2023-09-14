@@ -98,6 +98,7 @@ p {
 }
 
 .result {
+    display: none;
     box-sizing: border-box;
     width: 100%;
     padding: 1rem;
@@ -198,6 +199,7 @@ p {
     cursor: pointer;
     border: 1px solid #20006e;
     transition: all 0.3s ease-out;
+    margin-top: 0.75rem;
 }
 
 .convertButton:hover {
@@ -205,4 +207,25 @@ p {
     background-color: #20006e;
     border: 1px solid #20006e;
     transform: scale(1.2);
+}
+
+
+@media screen and (max-width: 700px){
+    .convertorContainer {
+        width: 100%;
+    }
+
+    .inputs {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .inputHeading {
+        width: 100%;
+        margin-top: 0.75rem;
+    }
+
+    .reverse {
+        margin-top: 0.75rem;
+    }
 }

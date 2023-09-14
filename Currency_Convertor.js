@@ -1100,6 +1100,7 @@ const getCurrencies = (fromCode,toCode,amount,fromName,toName) => {
     document.getElementById("spinner-container").style.display = "flex";
     axios.get(`https://v6.exchangerate-api.com/v6/623b8c9d822b33aecd87a9f2/pair/${fromCode}/${toCode}/${amount}`)
     .then((response) => {
+        document.getElementsByClassName("result")[0].style.display = "block"
         document.getElementById("spinner-container").style.display = "none";
         document.getElementById("inputAmountParagraph").innerText= `${amount} ${fromName} =` ;
         document.getElementById("answer").innerText=`${response.data.conversion_result} ${toName}`;
